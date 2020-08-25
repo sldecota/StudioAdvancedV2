@@ -1,0 +1,26 @@
+﻿<Window x:Class="StudioAdvanced.Views.winRegistration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudioAdvanced.Views"
+        mc:Ignorable="d"
+        Title="Registration" Height="425" Width="756.706" Background="#FFBDCBC4" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="23" Margin="21,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222"/>
+        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="23" Margin="21,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222"/>
+        <Label x:Name="lblFirstName" Content="First Name" HorizontalAlignment="Left" Margin="21,14,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblLastName" Content="Last Name" HorizontalAlignment="Left" Margin="21,68,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnRegister" Content="Register" HorizontalAlignment="Left" Margin="501,40,0,0" VerticalAlignment="Top" Width="147" Height="70" Click="btnRegister_Click"/>
+        <DataGrid x:Name="dgClasses" Margin="10,156,10,0" VerticalAlignment="Top" Height="228" MouseUp="dgClasses_MouseUp">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseEnter" Handler="MouseEnterHandler"></EventSetter>
+                    <EventSetter Event="PreviewMouseDown" Handler="PreviewMouseDownHandler"></EventSetter>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <Label x:Name="lblClasses" Content="Classes" HorizontalAlignment="Left" Margin="21,130,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

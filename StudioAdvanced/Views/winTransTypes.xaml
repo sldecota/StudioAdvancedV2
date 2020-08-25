@@ -1,0 +1,20 @@
+﻿<Window x:Class="StudioAdvanced.Views.winTransTypes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudioAdvanced.Views"
+        mc:Ignorable="d"
+        Title="Edit Transaction Types" Height="525" Width="825" Background="#FFBDCBC4" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid x:Name="dgTransTypes" Margin="10,10,10,50" 
+                  RowEditEnding="dgTransTypes_RowEditEnding" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding TransTypeID, UpdateSourceTrigger=LostFocus}" Header="ID" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Description, UpdateSourceTrigger=LostFocus}" Header="Description"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnDone" Content="Done" HorizontalAlignment="Left" Margin="711,464,0,0" VerticalAlignment="Top" Width="96" Click="btnDone_Click"/>
+
+    </Grid>
+</Window>

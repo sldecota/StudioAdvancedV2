@@ -1,0 +1,24 @@
+﻿<Window x:Class="StudioAdvanced.Views.WinEditSysParameters"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudioAdvanced.Views"
+        mc:Ignorable="d"
+        Title="Edit System Parameters" Height="525" Width="825" Background="#FFBDCBC4" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dgParameters" Margin="10,10,10,55" RowEditEnding="dgParameters_RowEditEnding" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ParameterID, UpdateSourceTrigger=LostFocus}" Header="ID" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Description, UpdateSourceTrigger=LostFocus}" Header="Parameter Name"/>
+                <DataGridTextColumn Binding="{Binding Value, UpdateSourceTrigger=LostFocus}" Header="Parameter Value"/>
+                <DataGridTextColumn Binding="{Binding MiscDescription, UpdateSourceTrigger=LostFocus}" Header="Notes"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnDone" Content="Done" HorizontalAlignment="Left" Margin="716,464,0,0" VerticalAlignment="Top" Width="91" Click="btnDone_Click"/>
+
+    </Grid>
+</Window>

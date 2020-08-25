@@ -1,0 +1,245 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:StudioAdvanced.Views"
+        xmlns:viewModels="clr-namespace:StudioAdvanced.ViewModels" x:Class="StudioAdvanced.MainWindow"
+        mc:Ignorable="d"
+        d:DesignHeight="900" d:DesignWidth="1440"
+        Title="StudioAdvanced" Height="{Binding SystemParameters.PrimaryScreenHeight}" Width="{Binding SystemParameters.PrimaryScreenWidth}" WindowState="Maximized" Icon="main.ico">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/bg5.jpg"/>
+    </Window.Background>
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Ribbon Grid.ColumnSpan="3" FontSize="13" FontFamily="Yu Gothic UI Semibold">
+            <Ribbon.HelpPaneContent>
+                <RibbonButton SmallImageSource="Images\help.png" />
+            </Ribbon.HelpPaneContent>
+            <!--<Ribbon.QuickAccessToolBar>
+                <RibbonQuickAccessToolBar>
+                    --><!--<RibbonButton x:Name="Save" SmallImageSource="Images\save.png" />--><!--
+                    <RibbonSplitButton x:Name="Dancer" SmallImageSource="Images\user.png">
+                        --><!--<RibbonSplitMenuItem Header="Add Dancer" />--><!--
+                        <RibbonSplitMenuItem Header="Edit Dancer" />
+                        <RibbonSplitMenuItem Header="Delete Dancer" />
+                    </RibbonSplitButton>
+                    <RibbonSplitButton x:Name="Family" SmallImageSource="Images\users.png">
+                        <RibbonSplitMenuItem Header="Add Family" />
+                        <RibbonSplitMenuItem Header="Edit Family" />
+                        <RibbonSplitMenuItem Header="Delete Family" />
+                    </RibbonSplitButton>
+                    <RibbonButton x:Name="PhoneBook" SmallImageSource="Images\phone_book.png" />
+                </RibbonQuickAccessToolBar>
+            </Ribbon.QuickAccessToolBar>-->
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu KeyTip="F">
+                    <RibbonApplicationMenuItem Header="Edit Pay Types" ImageSource="Images\edit_page.png" Click="EditPayTypes_Click"/>
+                    <RibbonApplicationMenuItem Header="Edit Transaction Types" ImageSource="Images\dollar_currency_sign.png" Click="EditTransTypes_Click"/>
+                    <RibbonApplicationMenuItem Header="Edit Class Levels" ImageSource="Images\database.png"/>
+                    <RibbonApplicationMenuItem Header="Edit System Parameters" ImageSource="Images\page_process.png" Click="EditSysParams_Click"/>
+                    <RibbonApplicationMenuItem Header="Recital Wizard" ImageSource="Images\magic_wand_2.png" Click="RecitalWizard_Click"/>
+                    <RibbonApplicationMenuItem Header="Run Year End" ImageSource="Images\lock.png" Click="YearEnd_Click"/>
+                    <RibbonApplicationMenuItem Header="Exit" ImageSource="Images\next.png" Click="ExitApplication_Click_1" />
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+            <!--<RibbonTab Header="Search">
+                <RibbonGroup x:Name="Search" >
+                    <RibbonButton LargeImageSource="Images\search.png" Label="Search" />
+                </RibbonGroup>
+            </RibbonTab>-->
+            <RibbonTab Header="Print">
+                <RibbonGroup x:Name="Reports" Header="Statements and Reports">
+                    <RibbonButton x:Name="btnPrintStatement" LargeImageSource="Images\add_page.png" Label="Print Statement" Click="btnPrintStatement_Click" KeyTip="S" Content="_Statement"/>
+                    <RibbonButton x:Name="btnPrintDaysheet" LargeImageSource="Images\new_page.png" Label="Print Daysheet" Click="btnPrintDaysheet_Click" />
+                    <RibbonButton x:Name="btnPrintSchedule" LargeImageSource="Images\clock.png" Label="Print Schedule" Click="btnPrintSchedule_Click"/>
+                    <RibbonButton x:Name="btnPrintClassList" LargeImageSource="Images\accept_page.png" Label="Print Class List" Click="btnPrintClassList_Click" />
+                    <RibbonButton x:Name="btnPrintRoster" LargeImageSource="Images\calendar_empty.png" Label="Print Class Roster" Click="btnPrintClassRoster_Click"/>
+                    <RibbonButton x:Name="btnPrintAccountDetails" LargeImageSource="Images\chart.png" Label="Print Account Details" Click="btnPrintAccountDetails_Click"/>
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Payments">
+                <RibbonGroup x:Name="Payments" Header="Payments and Fees">
+                    <RibbonButton x:Name="btnPayment" LargeImageSource="Images\payment.png" Label="Take a Payment" Click="btnPayment_Click" Content="&amp;P" />
+                    <RibbonButton x:Name="btnRecitalFee" LargeImageSource="Images\promotion.png" Label="Add Recital Fee" Click="btnRecitalFee_Click" />
+                    <RibbonButton x:Name="btnRegistrationFee" LargeImageSource="Images\accept_database.png" Label="Add Registration Fee" Click="btnRegistrationFee_Click"/>
+                    <RibbonButton x:Name="btnApplyCredit" LargeImageSource="Images\credit.png" Label="Apply Credit" Click="btnApplyCredit_Click" />
+                    <RibbonButton x:Name="btnAddCharge" LargeImageSource="Images\add_to_shopping_cart.png" Label="Add Charge" Click="btnAddCharge_Click" />
+                    <RibbonButton x:Name="btnAdjustCharge" LargeImageSource="Images\insert_to_shopping_cart.png" Label="Adjust Charge" Click="btnAdjustCharge_Click" />
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Fundraising">
+                <RibbonGroup x:Name="Fundraising" Header="Fundraising Tracking">
+                    <RibbonButton x:Name="btnAddFundraising" LargeImageSource="Images\tag_green.png" Label="Add Fundraising" Click="btnAddFundraising_Click" />
+                    <RibbonButton x:Name="btnDeductFundraising" LargeImageSource="Images\delete.png" Label="Deduct Fundraising" Click="btnDeductFundraising_Click"/>
+                    <RibbonButton x:Name="btnFundraisingReport" LargeImageSource="Images\page_process.png" Label="Print Fundraising Statement" Click="btnPrintFundraisingStatement_Click"/>
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="91*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ContentControl x:Name="cntCurrentView" Grid.Column="1" Content="{Binding CurrentView}">
+                <ContentControl.Background>
+                    <ImageBrush/>
+                </ContentControl.Background>
+            </ContentControl>
+            <ListBox ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListBox.Resources>
+                    <Style TargetType="{x:Type Expander}">
+                        <Setter Property="IsExpanded"
+                            Value="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}"/>
+                    </Style>
+                </ListBox.Resources>
+                <ListBox.Template>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <ItemsPresenter/>
+                    </ControlTemplate>
+                </ListBox.Template>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <Expander Background="DarkSeaGreen">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Expanded" >
+                            <i:InvokeCommandAction Command="{Binding SwitchViewsCommand}" >
+                                <i:InvokeCommandAction.CommandParameter>
+                                    <x:Type TypeName="views:FamilyView"/>
+                                </i:InvokeCommandAction.CommandParameter>
+                            </i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <Expander.Header>
+                        <BulletDecorator>
+                            <BulletDecorator.Bullet>
+                                <Image Source="Images/users.png" Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            </BulletDecorator.Bullet>
+                            <TextBlock Margin="10,0,0,0" Text="Families" VerticalAlignment="Center" HorizontalAlignment="Stretch" Foreground="White" />
+                        </BulletDecorator>
+                    </Expander.Header>
+                    <WrapPanel>
+                        <Button x:Name="btnAddFamily" Margin="5,5,5,5" Foreground="white" Background="Transparent" Content="Add New Family" Height="30" Width="187" BorderThickness="0" Click="btnAddFamily_Click" />
+                        <Button x:Name="btnSaveFamily" Margin="5,5,5,5" Foreground="white" Background="Transparent" Content="Save Current Family" Height="30" Width="187" BorderThickness="0" Click="btnSaveFamily_Click" />
+                        <Button x:Name="btnDeleteFamily" Margin="5,5,5,5" Foreground="white" Background="Transparent" Content="Delete Current Family" Height="30" Width="187" BorderThickness="0" Click="btnDeleteFamily_Click" />
+                        <Button x:Name="btnAddStudentFmly" Margin="5,5,5,5" Foreground="white" Background="Transparent" Content="Add Student" Height="30" Width="187" BorderThickness="0" Click="btnAddStudentFmly_Click" />
+                        <Button x:Name="btnEditFamilyTuition" Margin="5,5,5,5" Foreground="white" Background="Transparent" Content="Edit Tuition" Height="30" Width="187" BorderThickness="0" Click="btnEditFamilyTuition_Click" />
+                    </WrapPanel>
+                </Expander>
+
+                <Expander Background="CornflowerBlue" x:Name="exStudent">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Expanded" >
+                            <i:InvokeCommandAction Command="{Binding SwitchViewsCommand}" >
+                                <i:InvokeCommandAction.CommandParameter>
+                                    <x:Type TypeName="views:StudentView"/>
+                                </i:InvokeCommandAction.CommandParameter>
+                            </i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <Expander.Header>
+                        <BulletDecorator>
+                            <BulletDecorator.Bullet>
+                                <Image Source="Images/user.png" Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            </BulletDecorator.Bullet>
+                            <TextBlock Margin="10,0,0,0" Text="Students" VerticalAlignment="Center" HorizontalAlignment="Stretch" Foreground="White" />
+                        </BulletDecorator>
+                    </Expander.Header>
+                    <WrapPanel>
+                        <!--<Button x:Name="btnAddStudent" Margin="5,5,5,5" Foreground="white" Content="Add New Student" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187" Click="btnAddStudent_Click"/>-->
+                        <Button x:Name="btnSaveStudent" Margin="5,5,5,5" Foreground="white" Content="Save Current Student" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187" Click="btnSaveStudent_Click"/>
+                        <Button x:Name="btnDeleteStudent" Margin="5,5,5,5" Foreground="white" Content="Delete Current Student" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187" Click="btnDeleteStudent_Click"/>
+                        <Button x:Name="btnRegistration" Margin="5,5,5,5" Foreground="white" Content="Register A Class" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187" Click="btnRegistration_Click"/>
+                    </WrapPanel>
+                </Expander>
+
+                <Expander Background="DarkSlateBlue">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Expanded" >
+                            <i:InvokeCommandAction Command="{Binding SwitchViewsCommand}" >
+                                <i:InvokeCommandAction.CommandParameter>
+                                    <x:Type TypeName="views:TeacherView"/>
+                                </i:InvokeCommandAction.CommandParameter>
+                            </i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <Expander.Header>
+                        <BulletDecorator>
+                            <BulletDecorator.Bullet>
+                                <Image Source="Images/teacher.png" Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            </BulletDecorator.Bullet>
+                            <TextBlock Margin="10,0,0,0" Text="Teachers" VerticalAlignment="Center" HorizontalAlignment="Stretch" Foreground="White" />
+                        </BulletDecorator>
+                    </Expander.Header>
+                    <WrapPanel>
+                        <Button x:Name="btnAddTeacher" Margin="5,5,5,5" Foreground="white" Content="Add Teacher" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187" Click="btnAddTeacher_Click"/>
+                        <Button x:Name="btnSaveTeacher" Margin="5,5,5,5" Foreground="white" Content="Save Current Teacher" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187" Click="btnSaveTeacher_Click"/>
+                        <Button x:Name="btnDeleteTeacher" Margin="5,5,5,5" Foreground="white" Content="Delete Current Teacher" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187"/>
+                    </WrapPanel>
+                </Expander>
+
+                <Expander Background="Peru">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Expanded" >
+                            <i:InvokeCommandAction Command="{Binding SwitchViewsCommand}" >
+                                <i:InvokeCommandAction.CommandParameter>
+                                    <x:Type TypeName="views:ClassView"/>
+                                </i:InvokeCommandAction.CommandParameter>
+                            </i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <Expander.Header>
+                        <BulletDecorator>
+                            <BulletDecorator.Bullet>
+                                <Image Source="Images/phone_book_edit.png" Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            </BulletDecorator.Bullet>
+                            <TextBlock Margin="10,0,0,0" Text="Classes" VerticalAlignment="Center" HorizontalAlignment="Stretch" Foreground="White" />
+                        </BulletDecorator>
+                    </Expander.Header>
+                    <WrapPanel>
+                        <Button x:Name="btnAddClass" Margin="5,5,5,5" Foreground="white" Content="Add New Class" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187" Click="btnAddClass_Click"/>
+                        <Button x:Name="btnSaveClass" Margin="5,5,5,5" Foreground="white" Content="Save Current Class" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187" Click="btnSaveClass_Click"/>
+                        <Button x:Name="btnDeleteClass" Margin="5,5,5,5" Foreground="white" Content="Delete Current Class" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187" Click="btnDeleteClass_Click"/>
+                        <Button x:Name="btnRemoveStudent" Margin="5,5,5,5" Foreground="white" Content="Remove Student" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187" Click="btnRemoveStudent_Click" />
+                    </WrapPanel>
+                </Expander>
+                <!--<Expander Background="OrangeRed">
+                    <Expander.Header>
+                        <BulletDecorator>
+                            <BulletDecorator.Bullet>
+                                <Image Source="Images/calculator.png" Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            </BulletDecorator.Bullet>
+                            <TextBlock Margin="10,0,0,0" Text="Ledger" VerticalAlignment="Center" HorizontalAlignment="Stretch" Foreground="White" />
+                        </BulletDecorator>
+                    </Expander.Header>
+                    <WrapPanel>
+                        <Button x:Name="btnRecievables" Margin="5,5,5,5" Foreground="white" Content="View Receivables" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187"/>
+                        <Button x:Name="btnPayables" Margin="5,5,5,5" Foreground="white" Content="View Payables" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187"/>
+                        <Button x:Name="btnTransTypes" Margin="5,5,5,5" Foreground="white" Content="Edit Transaction Types" Background="{x:Null}" BorderBrush="{x:Null}" Height="30" Width="187" Click="btnTransTypes_Click"/>
+                    </WrapPanel>
+                </Expander>-->
+            </ListBox>
+        </Grid>
+    </Grid>
+</Window>

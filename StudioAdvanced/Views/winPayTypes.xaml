@@ -1,0 +1,15 @@
+﻿<Window x:Class="StudioAdvanced.Views.winPayTypes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudioAdvanced.Views"
+        mc:Ignorable="d"
+        Title="winPayTypes" Height="525" Width="825" Background="#FFBDCBC4" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid x:Name="dgPayTypes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="415" Width="797" AddingNewItem="dgPayTypes_AddingNewItem" BeginningEdit="dgPayTypes_BeginningEdit" PreviewKeyDown="dgPayTypes_PreviewKeyDown" RowEditEnding="dgPayTypes_RowEditEnding" />
+        <Button x:Name="btnDone" Content="Done" HorizontalAlignment="Left" Margin="711,464,0,0" VerticalAlignment="Top" Width="96"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="617,464,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>

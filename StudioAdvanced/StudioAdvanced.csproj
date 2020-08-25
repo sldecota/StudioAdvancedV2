@@ -1,0 +1,745 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D50DDCFA-DE08-42B5-A825-103324AAB230}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StudioAdvanced</RootNamespace>
+    <AssemblyName>StudioAdvanced</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>main.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=1.4.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.4.0\lib\net45\CommonServiceLocator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetKit.Wpf.AutoCompleteComboBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetKit.Wpf.AutoCompleteComboBox.1.2.0\lib\net45\DotNetKit.Wpf.AutoCompleteComboBox.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.3.1.953, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.3.1.953\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Prototyping.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="microsoft.expression.prototyping.runtime, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.TeamFoundation.Client, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.TeamFoundation.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="microsoft.teamfoundation.controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.ExtensibilityHosting, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Web.XmlTransform, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Xdt.1.0.0\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.6.3.0\lib\net45\Prism.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism.Mef.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Mef.6.3.0\lib\net45\Prism.Mef.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\Prism.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="system.windows.controls.ribbon" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Helpers\BaseViewModel.cs" />
+    <Compile Include="Models\ClassModel.cs" />
+    <Compile Include="Models\PaymentModel.cs" />
+    <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="Models\FamilyModel.cs" />
+    <Compile Include="Models\TeacherModel.cs" />
+    <Compile Include="PrintAccountDetailsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintAccountDetailsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrintFundraisingStatementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintFundraisingStatementDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrintReceipt.cs">
+      <DependentUpon>PrintReceipt.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrintReceipt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintReceipt.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrintRosterDataSet.cs">
+      <DependentUpon>PrintRosterDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrintRosterDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintRosterDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrintStatementDataSet.cs">
+      <DependentUpon>PrintStatementDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrintStatementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintStatementDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrintStudentScheduleDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintStudentScheduleDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StudioAdvancedDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudioAdvancedDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StudioAdvancedDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudioAdvancedDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SystemParameters.cs">
+      <DependentUpon>SystemParameters.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemParameters.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SystemParameters.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="TransTypesDB.cs">
+      <DependentUpon>TransTypesDB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="TransTypesDB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransTypesDB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Data.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\ClassView.xaml.cs">
+      <DependentUpon>ClassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentView.xaml.cs">
+      <DependentUpon>StudentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FamilyView.xaml.cs">
+      <DependentUpon>FamilyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TeacherView.xaml.cs">
+      <DependentUpon>TeacherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winAddFundraising.xaml.cs">
+      <DependentUpon>winAddFundraising.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winAddNewClass.xaml.cs">
+      <DependentUpon>winAddNewClass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winAddNewFamily.xaml.cs">
+      <DependentUpon>winAddNewFamily.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winAddNewStudent.xaml.cs">
+      <DependentUpon>winAddNewStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winAddNewTeacher.xaml.cs">
+      <DependentUpon>winAddNewTeacher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winCharge.xaml.cs">
+      <DependentUpon>winCharge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winCredit.xaml.cs">
+      <DependentUpon>winCredit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winDaysheet.xaml.cs">
+      <DependentUpon>winDaysheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winDeductFundraising.xaml.cs">
+      <DependentUpon>winDeductFundraising.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winEditStatement.xaml.cs">
+      <DependentUpon>winEditStatement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winEditSysParams.xaml.cs">
+      <DependentUpon>winEditSysParams.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winEditTuition.xaml.cs">
+      <DependentUpon>winEditTuition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winPayment.xaml.cs">
+      <DependentUpon>winPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winPayTypes.xaml.cs">
+      <DependentUpon>winPayTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winPrintAccountDetails.xaml.cs">
+      <DependentUpon>winPrintAccountDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winPrintClassList.xaml.cs">
+      <DependentUpon>winPrintClassList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winPrintClassRoster.xaml.cs">
+      <DependentUpon>winPrintClassRoster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winPrintFundraisingStatement.xaml.cs">
+      <DependentUpon>winPrintFundraisingStatement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winPrintSchedule.xaml.cs">
+      <DependentUpon>winPrintSchedule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winPrintStatement.xaml.cs">
+      <DependentUpon>winPrintStatement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winReceipt.xaml.cs">
+      <DependentUpon>winReceipt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winRecitalWizard.xaml.cs">
+      <DependentUpon>winRecitalWizard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winRegistration.xaml.cs">
+      <DependentUpon>winRegistration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winStatement.xaml.cs">
+      <DependentUpon>winStatement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\winTransTypes.xaml.cs">
+      <DependentUpon>winTransTypes.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\ClassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FamilyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TeacherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winAddFundraising.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winAddNewClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winAddNewFamily.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winAddNewStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winAddNewTeacher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winCharge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winCredit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winDaysheet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winDeductFundraising.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winEditStatement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winEditSysParams.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winEditTuition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winPayTypes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winPrintAccountDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winPrintClassList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winPrintClassRoster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winPrintFundraisingStatement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winPrintSchedule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winPrintStatement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winReceipt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winRecitalWizard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winStatement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\winTransTypes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptClassRoster.rdlc" />
+    <EmbeddedResource Include="Reports\rptFundraisingStatement.rdlc" />
+    <EmbeddedResource Include="Reports\rptReceipt.rdlc" />
+    <EmbeddedResource Include="Reports\rptClassList.rdlc" />
+    <EmbeddedResource Include="Reports\rptDaysheet.rdlc" />
+    <EmbeddedResource Include="Reports\rptAccountDetails.rdlc" />
+    <EmbeddedResource Include="Reports\rptStatement.rdlc" />
+    <EmbeddedResource Include="Reports\rptStudentSchedule.rdlc" />
+    <None Include="App.Debug.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
+    <None Include="App.Release.config">
+      <DependentUpon>App.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrintAccountDetailsDataSet.xsc">
+      <DependentUpon>PrintAccountDetailsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrintAccountDetailsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrintAccountDetailsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PrintAccountDetailsDataSet.xss">
+      <DependentUpon>PrintAccountDetailsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrintFundraisingStatementDataSet.xsc">
+      <DependentUpon>PrintFundraisingStatementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrintFundraisingStatementDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrintFundraisingStatementDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PrintFundraisingStatementDataSet.xss">
+      <DependentUpon>PrintFundraisingStatementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrintRosterDataSet.xsc">
+      <DependentUpon>PrintRosterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrintRosterDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrintRosterDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PrintRosterDataSet.xss">
+      <DependentUpon>PrintRosterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrintStudentScheduleDataSet.xsc">
+      <DependentUpon>PrintStudentScheduleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrintStudentScheduleDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrintStudentScheduleDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PrintStudentScheduleDataSet.xss">
+      <DependentUpon>PrintStudentScheduleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SystemParameters.dbml.layout">
+      <DependentUpon>SystemParameters.dbml</DependentUpon>
+    </None>
+    <None Include="SystemParameters.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SystemParameters.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TransTypesDB.dbml.layout">
+      <DependentUpon>TransTypesDB.dbml</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="PrintReceipt.xsc">
+      <DependentUpon>PrintReceipt.xsd</DependentUpon>
+    </None>
+    <None Include="PrintReceipt.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrintReceipt.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PrintReceipt.xss">
+      <DependentUpon>PrintReceipt.xsd</DependentUpon>
+    </None>
+    <None Include="PrintStatementDataSet.xsc">
+      <DependentUpon>PrintStatementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrintStatementDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrintStatementDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PrintStatementDataSet.xss">
+      <DependentUpon>PrintStatementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="StudioAdvancedDataSet.xsc">
+      <DependentUpon>StudioAdvancedDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StudioAdvancedDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StudioAdvancedDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StudioAdvancedDataSet.xss">
+      <DependentUpon>StudioAdvancedDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StudioAdvancedDataSet2.xsc">
+      <DependentUpon>StudioAdvancedDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="StudioAdvancedDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StudioAdvancedDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StudioAdvancedDataSet2.xss">
+      <DependentUpon>StudioAdvancedDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="TransTypesDB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>TransTypesDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <TransformOnBuild>true</TransformOnBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+      <TransformOnBuild>true</TransformOnBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\accept.png" />
+    <Resource Include="Images\accept_database.png" />
+    <Resource Include="Images\accept_page.png" />
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\add_home.png" />
+    <Resource Include="Images\add_page.png" />
+    <Resource Include="Images\add_to_database.png" />
+    <Resource Include="Images\add_to_favorites.png" />
+    <Resource Include="Images\add_to_folder.png" />
+    <Resource Include="Images\add_to_shopping_cart.png" />
+    <Resource Include="Images\add_user.png" />
+    <Resource Include="Images\attachment.png" />
+    <Resource Include="Images\back.png" />
+    <Resource Include="Images\block.png" />
+    <Resource Include="Images\calculator.png" />
+    <Resource Include="Images\calendar.png" />
+    <Resource Include="Images\calendar_empty.png" />
+    <Resource Include="Images\cd.png" />
+    <Resource Include="Images\chart.png" />
+    <Resource Include="Images\chart_down.png" />
+    <Resource Include="Images\chart_pie.png" />
+    <Resource Include="Images\chart_up.png" />
+    <Resource Include="Images\clock.png" />
+    <Resource Include="Images\comment.png" />
+    <Resource Include="Images\comments.png" />
+    <Resource Include="Images\cut.png" />
+    <Resource Include="Images\cut_from_page.png" />
+    <Resource Include="Images\database.png" />
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\delete_folder.png" />
+    <Resource Include="Images\delete_home.png" />
+    <Resource Include="Images\delete_page.png" />
+    <Resource Include="Images\delete_user.png" />
+    <Resource Include="Images\dollar_currency_sign.png" />
+    <Resource Include="Images\download.png" />
+    <Resource Include="Images\download_database.png" />
+    <Resource Include="Images\dvd.png" />
+    <Resource Include="Images\edit.png" />
+    <Resource Include="Images\edit_page.png" />
+    <Resource Include="Images\edit_profile.png" />
+    <Resource Include="Images\euro_currency_sign.png" />
+    <Resource Include="Images\favorite.png" />
+    <Resource Include="Images\folder.png" />
+    <Resource Include="Images\folder_accept.png" />
+    <Resource Include="Images\folder_conflicted.png" />
+    <Resource Include="Images\folder_full.png" />
+    <Resource Include="Images\folder_modified.png" />
+    <Resource Include="Images\full_page.png" />
+    <Resource Include="Images\heart.png" />
+    <Resource Include="Images\help.png" />
+    <Resource Include="Images\home.png" />
+    <Resource Include="Images\home_accept.png" />
+    <Resource Include="Images\info.png" />
+    <Resource Include="Images\insert_to_shopping_cart.png" />
+    <Resource Include="Images\link.png" />
+    <Resource Include="Images\lock.png" />
+    <Resource Include="Images\mail.png" />
+    <Resource Include="Images\mail_lock.png" />
+    <Resource Include="Images\mail_receive.png" />
+    <Resource Include="Images\mail_search.png" />
+    <Resource Include="Images\mail_send.png" />
+    <Resource Include="Images\mobile_phone.png" />
+    <Resource Include="Images\new.png" />
+    <Resource Include="Images\new_page.png" />
+    <Resource Include="Images\next.png" />
+    <Resource Include="Images\page_process.png" />
+    <Resource Include="Images\phone_book.png" />
+    <Resource Include="Images\phone_book_edit.png" />
+    <Resource Include="Images\process.png" />
+    <Resource Include="Images\promotion.png" />
+    <Resource Include="Images\protection.png" />
+    <Resource Include="Images\refresh.png" />
+    <Resource Include="Images\remove_from_database.png" />
+    <Resource Include="Images\remove_from_shopping_cart.png" />
+    <Resource Include="Images\rss.png" />
+    <Resource Include="Images\sale.png" />
+    <Resource Include="Images\save.png" />
+    <Resource Include="Images\search.png" />
+    <Resource Include="Images\search_database.png" />
+    <Resource Include="Images\search_home.png" />
+    <Resource Include="Images\search_page.png" />
+    <Resource Include="Images\search_user.png" />
+    <Resource Include="Images\shopping_cart.png" />
+    <Resource Include="Images\shopping_cart_accept.png" />
+    <Resource Include="Images\sound.png" />
+    <Resource Include="Images\sound_muted.png" />
+    <Resource Include="Images\sterling_pound_currency_sign.png" />
+    <Resource Include="Images\support.png" />
+    <Resource Include="Images\tag_blue.png" />
+    <Resource Include="Images\tag_green.png" />
+    <Resource Include="Images\text_page.png" />
+    <Resource Include="Images\unlock.png" />
+    <Resource Include="Images\user.png" />
+    <Resource Include="Images\users.png" />
+    <Resource Include="Images\user_accept.png" />
+    <Resource Include="Images\warning.png" />
+    <Resource Include="Images\yen_currency_sign.png" />
+    <Resource Include="Images\zoom_in.png" />
+    <Resource Include="Images\zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\payment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\credit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\edit_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add_teacher.png" />
+    <Resource Include="Images\delete_teacher.png" />
+    <Resource Include="Images\edit_teacher.png" />
+    <Resource Include="Images\teacher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\magic_wand_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="main.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">
+    <!--Generate transformed app config in the intermediate directory-->
+    <TransformXml Source="App.config" Destination="$(IntermediateOutputPath)$(TargetFileName).config" Transform="App.$(Configuration).config" />
+    <!--Force build process to use the transformed configuration file from now on.-->
+    <ItemGroup>
+      <AppConfigWithTargetPath Remove="App.config" />
+      <AppConfigWithTargetPath Include="$(IntermediateOutputPath)$(TargetFileName).config">
+        <TargetPath>$(TargetFileName).config</TargetPath>
+      </AppConfigWithTargetPath>
+    </ItemGroup>
+  </Target>
+  <!--Override After Publish to support ClickOnce AfterPublish. Target replaces the untransformed config file copied to the deployment directory with the transformed one.-->
+  <Target Name="AfterPublish">
+    <PropertyGroup>
+      <DeployedConfig>$(_DeploymentApplicationDir)$(TargetName)$(TargetExt).config$(_DeploymentFileMappingExtension)</DeployedConfig>
+    </PropertyGroup>
+    <!--Publish copies the untransformed App.config to deployment directory so overwrite it-->
+    <Copy Condition="Exists('$(DeployedConfig)')" SourceFiles="$(IntermediateOutputPath)$(TargetFileName).config" DestinationFiles="$(DeployedConfig)" />
+  </Target>
+</Project>

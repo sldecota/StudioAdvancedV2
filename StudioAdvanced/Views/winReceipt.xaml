@@ -1,0 +1,17 @@
+﻿<Window x:Class="StudioAdvanced.Views.winReceipt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudioAdvanced.Views"
+        xmlns:winForms="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        mc:Ignorable="d"
+        Title="Print Receipt" WindowState="Maximized" Loaded="Window_Loaded">
+    <Grid>
+        <WindowsFormsHost Margin="0,28,0,5">
+            <winForms:ReportViewer x:Name="Receipt"></winForms:ReportViewer>
+        </WindowsFormsHost>
+        <Button x:Name="btnEmail" Content="Email" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Width="74" Click="btnEmail_Click"/>
+        <TextBox x:Name="txtEmail" Height="23" Margin="89,2,360,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

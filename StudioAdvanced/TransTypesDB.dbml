@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="StudioAdvanced" Class="TransTypesDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=StudioAdvanced;Integrated Security=True" SettingsObjectName="StudioAdvanced.Properties.Settings" SettingsPropertyName="StudioAdvancedConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TransTypes" Member="TransTypes">
+    <Type Name="TransType">
+      <Column Name="TransTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsReadOnly="true" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="Description" AutoSync="OnInsert" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

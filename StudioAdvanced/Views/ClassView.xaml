@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="StudioAdvanced.Views.ClassView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudioAdvanced.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1440" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="286" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="500" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="264" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <DataGrid x:Name="dgRoster" Margin="10,35,10,10" Grid.Row="1" GridLinesVisibility="Horizontal" IsReadOnly="True" 
+                      ColumnWidth="*" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" MouseUp="dgRoster_MouseUp"/>
+            <Label x:Name="lblRoster" Content="Student Roster" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Height="34" Width="144"/>
+            <TextBox x:Name="txtClassName" Margin="10,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" HorizontalAlignment="Left" Width="450" Height="29"/>
+            <Label x:Name="lblClassName" Content="Class Name" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="107"/>
+            <TextBox x:Name="txtRoutineName" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" HorizontalAlignment="Left" Width="550" Height="29"/>
+            <Label x:Name="lblRoutineName" Content="Routine Name" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="126"/>
+            <Label x:Name="lblTeacher" Content="Teacher" HorizontalAlignment="Left" Margin="10,107,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="62"/>
+            <ComboBox x:Name="cbxDay" HorizontalAlignment="Left" Margin="10,180,0,0" Width="200" VerticalAlignment="Top" BorderBrush="#FFACACAC" FontSize="18" Height="30">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+            <Label x:Name="lblDay" Content="Class Day" HorizontalAlignment="Left" Margin="10,158,0,77" FontSize="14" Width="107"/>
+            <ComboBox x:Name="cbxClassroom" HorizontalAlignment="Left" Margin="436,180,0,0" VerticalAlignment="Top" Width="164" FontSize="18" Height="30"/>
+            <Label x:Name="lblClassromm" Content="Classroom" HorizontalAlignment="Left" Margin="436,158,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="74"/>
+            <TextBox x:Name="txtClassTime" HorizontalAlignment="Left" Height="30" Margin="274,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="18"/>
+            <Label x:Name="lblClassTime" Content="Class Time" HorizontalAlignment="Left" Margin="274,158,0,0" VerticalAlignment="Top" FontSize="14"/>
+            <ComboBox x:Name="cbxClassLevel" Margin="0,24,19,0" VerticalAlignment="Top" FontSize="18" Background="Black" HorizontalAlignment="Right" Width="204"/>
+            <Label x:Name="lblClassLevel" Content="Class Level" Margin="0,0,147,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="76"/>
+            <ComboBox x:Name="cbxTeacher" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top" Width="264" FontSize="18"/>
+        </Grid>
+        <Label x:Name="lblClasses" Content="Classes" HorizontalAlignment="Left" Margin="40,8,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Height="39" Width="93"/>
+        <DataGrid x:Name="dgClasses" Margin="390,50,0,25" MouseUp="dgClasses_MouseUp" GridLinesVisibility="Horizontal" IsReadOnly="True" 
+                  ColumnWidth="*" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Width="965"/>
+        <TextBox x:Name="txtFilter" HorizontalAlignment="Left" Height="24" Margin="134,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" TextChanged="txtFilter_TextChanged"/>
+        <Label x:Name="lblFilter" Content="Filter by Class Name" HorizontalAlignment="Left" Margin="134,100,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</UserControl>
